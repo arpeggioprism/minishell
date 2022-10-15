@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 19:01:09 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/14 21:39:07 by jiwkwon          ###   ########.fr        #
+#    Updated: 2022/10/15 19:00:08 by jshin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ SRCS =	$(SRCS_DIR)minishell.c \
 OBJS = $(patsubst $(SRCS_DIR)%, $(OBJS_DIR)%, $(SRCS:.c=.o))
 
 CC = cc
-CFLAG = -Wall -Wextra -Werror
+CFLAG = -Wall -Wextra -Werror -g
 
 all : $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:19:23 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/15 15:34:05 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/15 19:45:30 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	take_dquote(char *str, t_token **root)
 {
 	int	i;
+	char except[2] = " ";
 
 	i = 0;
 	add_item(str, str + 1, DQUOTE, root);
@@ -22,7 +23,11 @@ int	take_dquote(char *str, t_token **root)
 	while (str[i] != '\"' && str[i])
 		i += check_char2(str + i, root);
 	if (str[i] == '\"')
+	{
+		if (i == 0)
+			add_item(except, &except[0] + 1, WORD, root);
 		add_item(str + i, str + i + 1, DQUOTE, root);
+	}
 	else if (!str[i])
 	{
 		return (unclosed_quote(root), (i + 1));

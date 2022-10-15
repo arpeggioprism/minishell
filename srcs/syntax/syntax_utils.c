@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:21:15 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:03:24 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 16:02:37 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_token	*get_left(t_token *root)
 
 void	syntax_error(void)
 {
-	ft_putstr_fd("syntax Eroor\n", 1);
+	ft_putstr_fd("syntax Error\n", 1);
 }
 
 int	check_bal_par(t_token **root)
