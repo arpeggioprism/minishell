@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:33:58 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:04:33 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:39:02 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,12 @@ char	*ft_itoa(int n)
 	len = ft_len(n);
 	if (!len)
 	{
-		r = (char *)ft_malloc(&g_global.adrs, sizeof(char) * 2, 1);
-		if (!r)
-			return (NULL);
-		r[1] = (r[0] = '0', 0);
+		r = (char *)malloc(2);
+		r[0] = '0';
+		r[1] = 0;
 		return (r);
 	}
-	r = (char *)ft_malloc(&g_global.adrs, len * sizeof(char) + 1, 1);
+	r = (char *)malloc(len * sizeof(char) + 1);
 	if (!r)
 		return (NULL);
 	r[len--] = 0;

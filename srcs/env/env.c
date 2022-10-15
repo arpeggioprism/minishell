@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:02:20 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:01:30 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:42:46 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_env	*new_node_env(char *key, char *value)
 {
 	t_env	*new;
 
-	new = (t_env *)ft_malloc(&g_global.adrs, sizeof(t_env), 0);
+	new = (t_env *)ft_malloc(g_global.cur, sizeof(t_env), 0);
 	if (!new)
 		return (NULL);
 	new->value = value;
@@ -87,7 +87,7 @@ char	**transfer_env(t_env *env)
 
 	i = -1;
 	n = envlstsize(env);
-	argv = ft_malloc(&g_global.adrs, (n + 1) * sizeof(char *), 1);
+	argv = ft_malloc(g_global.cur, (n + 1) * sizeof(char *), 1);
 	while (env)
 	{
 		key = ft_strjoin(env->key, "=");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:27:31 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:46:36 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ typedef struct s_env
 typedef struct s_global
 {
 	t_collector	*adrs;
+	t_collector	**cur;
 	t_env		*env;
 	int			status;
 	int			runing;
@@ -199,10 +200,13 @@ void		ft_collect(t_collector **root, t_collector *node, int key);
 
 t_tree		*token(char *str, t_token **root);
 int			check_char(char *str, t_token **root);
+int			check_char2(char *str, t_token **root);
 int			take_word(char *str, t_token **root);
+int			take_word2(char *str, t_token **root);
 int			take_space(char *str, t_token **root);
 int			take_var(char *str, t_token **root);
 int			take_colon(char *str, t_token **root);
+int			take_colon2(char *str, t_token **root);
 int			take_dquote(char *str, t_token **root);
 int			take_qvar(char *str, t_token **root);
 int			check_closed_dq(t_token **root, char *str, int i, int last);

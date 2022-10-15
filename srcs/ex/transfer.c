@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transfer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:16:05 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 19:16:09 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:44:11 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**transfer(t_command *root)
 
 	i = -1;
 	n = cmdlstsize(root);
-	argv = ft_malloc(&g_global.adrs, (n + 1) * sizeof(char *), 1);
+	argv = ft_malloc(g_global.cur, (n + 1) * sizeof(char *), 1);
 	while (root)
 	{
 		argv[++i] = root->content;

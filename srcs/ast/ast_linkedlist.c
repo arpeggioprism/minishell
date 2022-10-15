@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ast_linkedlist.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:08:35 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 19:08:56 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:40:47 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_command	*new_nodecommand(char *str, int flag)
 {
 	t_command	*new;
 
-	new = (t_command *)ft_malloc(&g_global.adrs, sizeof(t_command), 1);
+	new = (t_command *)ft_malloc(g_global.cur, sizeof(t_command), 1);
 	if (!new)
 		return (NULL);
 	new->content = str;

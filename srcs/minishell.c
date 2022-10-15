@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:00:18 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:23:11 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:46:58 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ int	main(int ac, char **av, char **env)
 	t_tree	*head;
 
 	if (ac > 1)
+	{
 		printf("%s accept no params\n", ((*av) + 2));
+		return (0);
+	}
 	root = NULL;
 	g_global.adrs = NULL;
+	g_global.cur = &g_global.adrs;
 	get_env(env);
 	listen();
 	while (1)
 	{
-		str = readline("almond@minishell %: ");
+		str = readline("almond@minishell % ");
 		if (!str)
 			the_exit(g_global.status);
 		head = token(str, &root);

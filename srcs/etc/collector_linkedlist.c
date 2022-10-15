@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collector_linkedlist.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:23:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:01:37 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:37:30 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,13 @@ t_collector	*new_node_adr(void *adr, int key)
 t_collector	**append_adr(t_collector **root, void *adr, int key)
 {
 	t_collector	*node;
-	t_collector	*tmp;
 
-	tmp = *root;
 	node = new_node_adr(adr, key);
 	if (!*root)
 		return (*root = node, root);
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = node;
-	return (root);
+	(*root)->next = node;
+	g_global.cur = &((*root)->next); 
+	return (&g_global.adrs);
 }
 
 void	*ft_malloc(t_collector **root, size_t size, int key)

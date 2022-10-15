@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_linkedlist.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:18:37 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:02:31 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:44:37 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_token	*new_node(char *str, int flag)
 {
 	t_token	*new;
 
-	new = (t_token *)ft_malloc(&g_global.adrs, sizeof(t_token), 1);
+	new = (t_token *)ft_malloc(g_global.cur, sizeof(t_token), 1);
 	if (!new)
 		return (NULL);
 	new->str = str;

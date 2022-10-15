@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:35:38 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 19:35:42 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:39:36 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(char *s1)
 	i = 0;
 	while (s1[i])
 		i++;
-	ptr = (char *)ft_malloc(&g_global.adrs, i * sizeof(char) + 1, 1);
+	ptr = (char *)ft_malloc(g_global.cur, i * sizeof(char) + 1, 1);
 	if (!ptr)
 		return (NULL);
 	i = -1;

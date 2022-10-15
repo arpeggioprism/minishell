@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:34:16 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:03:34 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:39:21 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_write_split(char **split, char *str, char c)
 			j = 0;
 			while (ft_is_separator(str[i + j], c) == 0)
 				j++;
-			split[w] = (char *)ft_malloc(&g_global.adrs, \
+			split[w] = (char *)ft_malloc(g_global.cur, \
 			sizeof(char) * (j + 1), 1);
 			if (!(split + w))
 				return (0);
@@ -88,7 +88,7 @@ char	**ft_split(char const *s, char c)
 	if (!s || !*s)
 		return (NULL);
 	w = ft_words((char *)s, c);
-	rtn = (char **)ft_malloc(&g_global.adrs, sizeof(char *) * (w + 1), 1);
+	rtn = (char **)ft_malloc(g_global.cur, sizeof(char *) * (w + 1), 1);
 	if (!rtn)
 		return (NULL);
 	if (!(ft_write_split(rtn, (char *) s, c)))

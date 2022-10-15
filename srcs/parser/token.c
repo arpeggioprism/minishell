@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:20:14 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:02:56 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 14:52:20 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,18 @@ int	check_char(char *str, t_token **root)
 		return (take_space(str, root));
 	else
 		return (take_word(str, root));
+	return (0);
+}
+
+int	check_char2(char *str, t_token **root)
+{
+	if (*str == ')' || *str == '(')
+		return (take_par(str, root));
+	else if (*str == '$')
+		return (take_var(str, root));
+	else if (*str == '\'' || *str == '\"')
+		return (take_colon2(str, root));
+	else
+		return (take_word2(str, root));
 	return (0);
 }

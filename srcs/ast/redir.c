@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redir.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 19:10:17 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/15 15:41:54 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_tree	*get_redir(t_tree *next, char *filename, int redtype)
 {
 	t_redir	*node;
 
-	node = ft_malloc(&g_global.adrs, sizeof(t_redir), 1);
+	node = ft_malloc(g_global.cur, sizeof(t_redir), 1);
 	node->type = REDIR;
 	node->redtype = redtype;
 	node->next = next;
@@ -93,4 +93,3 @@ t_tree	*get_rdr(t_token **head, t_tree *n)
 		return (next);
 	(void)next2;
 }
-
