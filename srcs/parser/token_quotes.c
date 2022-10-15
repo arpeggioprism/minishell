@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_quotes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:19:23 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/15 19:45:30 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/16 02:26:55 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	take_dquote(char *str, t_token **root)
 {
 	int	i;
-	char except[2] = " ";
+	char except[2] = "";
 
 	i = 0;
 	add_item(str, str + 1, DQUOTE, root);
