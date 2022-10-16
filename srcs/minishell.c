@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:00:18 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/15 19:44:20 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/16 21:21:49 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,8 @@ int	main(int ac, char **av, char **env)
 	t_tree	*head;
 
 	if (ac > 1)
-	{
-		printf("%s accept no params\n", ((*av) + 2));
-		return (0);
-	}
-	root = NULL;
-	g_global.adrs = NULL;
-	g_global.cur = &g_global.adrs;
+		return (printf("%s accept no params\n", ((*av) + 2)), 0);
+	g_global.cur = ((root = NULL, g_global.adrs = NULL, &g_global.adrs));
 	get_env(env);
 	listen();
 	while (1)

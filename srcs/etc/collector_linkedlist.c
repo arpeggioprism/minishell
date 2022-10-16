@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:23:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/15 15:37:30 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/16 21:26:15 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_collector	**append_adr(t_collector **root, void *adr, int key)
 	if (!*root)
 		return (*root = node, root);
 	(*root)->next = node;
-	g_global.cur = &((*root)->next); 
+	g_global.cur = &((*root)->next);
 	return (&g_global.adrs);
 }
 

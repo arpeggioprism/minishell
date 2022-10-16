@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_quotes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:19:23 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 02:26:55 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/16 21:28:50 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int	take_dquote(char *str, t_token **root)
 {
-	int	i;
-	char except[2] = "";
+	int		i;
+	char	*except;
 
 	i = 0;
+	except = ft_strdup("");
 	add_item(str, str + 1, DQUOTE, root);
 	str++;
 	while (str[i] != '\"' && str[i])
@@ -25,29 +26,13 @@ int	take_dquote(char *str, t_token **root)
 	if (str[i] == '\"')
 	{
 		if (i == 0)
-			add_item(except, &except[0] + 1, WORD, root);
+			add_item(except, except, WORD, root);
 		add_item(str + i, str + i + 1, DQUOTE, root);
 	}
 	else if (!str[i])
 	{
 		return (unclosed_quote(root), (i + 1));
 	}
-	return (i + 2);
-}
-
-int	take_dquote2(char *str, t_token **root)
-{
-	int	i;
-
-	i = 0;
-	add_item(str, str + 1, DQUOTE, root);
-	str++;
-	while (str[i] != '\"' && str[i])
-		i += check_char2(str, root);
-	if (str[i] == '\"')
-		add_item(str + i, str + i + 1, DQUOTE, root);
-	else if (!str[i])
-		return (unclosed_quote(root), (i + 1));
 	return (i + 2);
 }
 
@@ -105,20 +90,6 @@ int	take_colon(char *str, t_token **root)
 	else if (!str[i])
 		return (unclosed_quote(root), (i + 1));
 	return (i + 2);
-}
-
-int	take_colon2(char *str, t_token **root)
-{
-	int	i;
-
-	i = 0;
-	if (*str == '\"')
-		return (take_dquote2(str, root));
-	while (str[i] != '\"' && str[i])
-		i++;
-	if (str[i] == '\"')
-		add_item(str, str + i, WORD, root);
-	return (i);
 }
 
 void	*add_item(char *start, char *end, int flag, t_token **root)

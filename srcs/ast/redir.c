@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/15 15:41:54 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/16 21:23:21 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	get_rdr_utils(t_token **head, t_command **root)
 
 t_tree	*get_rdr(t_token **head, t_tree *n)
 {
-	t_tree		*next;
-	t_tree		*ret;
-	t_cmd			*next2;
+	t_tree	*next;
+	t_tree	*ret;
+	t_cmd	*next2;
 
 	ret = NULL;
 	if (!n)

@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:33:58 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/15 15:39:02 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/16 21:26:38 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_nbr(long long n, int len, char *r)
 {
-
 	while (n)
 	{
 		r[len--] = 48 + (n % 10);
@@ -46,12 +45,12 @@ char	*ft_itoa(int n)
 	len = ft_len(n);
 	if (!len)
 	{
-		r = (char *)malloc(2);
+		r = (char *)ft_malloc(g_global.cur, 2, 1);
 		r[0] = '0';
 		r[1] = 0;
 		return (r);
 	}
-	r = (char *)malloc(len * sizeof(char) + 1);
+	r = (char *)ft_malloc(g_global.cur, len * sizeof(char) + 1, 1);
 	if (!r)
 		return (NULL);
 	r[len--] = 0;

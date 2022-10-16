@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:13:04 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/14 21:01:17 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/16 21:25:08 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
-// if (argv && argv[1] && argv[2])
-// 	return NULL;
 
 char	**ft_split_exp(char *line)
 {
@@ -61,6 +58,7 @@ void	display_exports(void)
 int	ft_export_utils(char **argv, char **spl, int *status, int i)
 {
 	t_env	*node;
+
 	if (!spl || (spl[0][0] == '+') || argv[i][0] == '=' || \
 	(spl[0][ft_strlen(spl[0]) - 1] == '+' \
 	&& argv[i][ft_strlen(argv[i]) - 1] == '='))
