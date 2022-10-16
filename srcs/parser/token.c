@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:20:14 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:37 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 05:38:27 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ t_tree	*token(char *str, t_token **root)
 	i = 0;
 	head = NULL;
 	while (str[i])
-	{
 		i += check_char(str + i, root);
-	}
 	if (*root)
 	{
 		if (!check_syntax(root))

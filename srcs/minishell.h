@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 02:14:35 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/17 05:40:29 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,7 @@ typedef struct s_global
 
 t_global	g_global;
 
-
-//1.ENV
+// 1. ENV
 void		get_env(char **env);
 void		append_in_end_env(t_env **root, char *key, char *value);
 t_env		*new_node_env(char *key, char *value);
@@ -136,7 +135,7 @@ void		delete_env(t_env **root, t_env *deleted);
 int			envlstsize(t_env *root);
 char		**transfer_env(t_env *env);
 
-//2. PARSER
+// 2. PARSER
 t_tree		*token(char *str, t_token **root);
 int			check_char(char *str, t_token **root);
 int			check_char2(char *str, t_token **root);
@@ -163,7 +162,7 @@ int			get_last(char *str);
 int			calc_size(char *start, char *end);
 int			check_flag(char *str, int q);
 
-//3. SYNTAX
+// 3. SYNTAX
 int			check_syntax(t_token **root);
 int			check_begin(t_token *root);
 int			check_list(t_token *root);
@@ -175,7 +174,7 @@ void		syntax_error(void);
 t_token		*get_left(t_token *root);
 t_token		*get_right(t_token *root);
 
-//4. AST
+// 4. AST
 t_tree		*get_full(t_token **head);
 t_tree		*get_block(t_token **head);
 t_tree		*get_pipe(t_token **head);
@@ -199,7 +198,7 @@ void		delete_quotes(t_token **root);
 t_token		*link_nodes(t_token **root, t_token *deleted);
 void		delete_node_commnd(t_command **root, t_command *deleted);
 
-//5. EXECUTE
+// 5. EXECUTE
 void		cast_node(t_tree *root);
 void		ex_redir(t_redir *root);
 void		ex_pipe(t_wp *root);
@@ -215,7 +214,7 @@ int			getst(int status);
 bool		check_builtin(char **argv);
 int			find_path(char **argv);
 
-//6. BUILTINS
+// 6. BUILTINS
 void		ft_cd(char **argv);
 void		check_dir(char **argv, int s, char *cur);
 int			ft_echo(char **argv);
@@ -231,14 +230,14 @@ void		ft_export(char **argv);
 void		display_exports(void);
 char		**ft_split_exp(char *line);
 
-//7. ETC
+// 7. ETC
 void		*ft_malloc(t_collector **root, size_t size, int key);
 t_collector	**append_adr(t_collector **root, void *adr, int key);
 t_collector	*new_node_adr(void *adr, int key);
 void		ft_collect(t_collector **root, t_collector *node, int key);
 int			check_history(char *str);
 
-//8. UTILS
+// 8. UTILS
 char		*ft_itoa(int n);
 int			ft_is_separator(char c, char cr);
 int			ft_words(char *str, char c);
