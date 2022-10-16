@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+         #
+#    By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 19:01:09 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/16 22:48:42 by jshin            ###   ########.fr        #
+#    Updated: 2022/10/17 02:23:37 by jiwkwon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,11 @@ SRCS =	$(SRCS_DIR)minishell.c \
 		$(SRCS_DIR)env/env.c \
 		$(SRCS_DIR)etc/collector_linkedlist.c \
 		$(SRCS_DIR)etc/history.c \
-		$(SRCS_DIR)ex/ex.c \
-		$(SRCS_DIR)ex/excommand.c \
-		$(SRCS_DIR)ex/expander.c \
-		$(SRCS_DIR)ex/signal.c \
-		$(SRCS_DIR)ex/transfer.c \
+		$(SRCS_DIR)execute/ex.c \
+		$(SRCS_DIR)execute/excommand.c \
+		$(SRCS_DIR)execute/expander.c \
+		$(SRCS_DIR)execute/signal.c \
+		$(SRCS_DIR)execute/transfer.c \
 		$(SRCS_DIR)parser/delete_quotes.c \
 		$(SRCS_DIR)parser/parser_linkedlist.c \
 		$(SRCS_DIR)parser/token_connecters.c \
@@ -64,9 +64,9 @@ CFLAG = -Wall -Wextra -Werror
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@echo "\033[34m[Compiling libft]\033[37m"
+	@echo "\033[36m[Compiling libft]\033[37m"
 	make -C $(LIBFT_DIR)
-	@echo "\n\033[94m[Making minishell]\033[37m"
+	@echo "\n\033[36m[Making minishell]\033[37m"
 	$(CC) $(CFLAG) -L$(READ_LINE_DIR)/lib -lreadline -L$(LIBFT_DIR) -lft -o $(NAME) $(OBJS)
 	@echo "\033[32m\n...make Done!\n\033[37m"
 
@@ -75,14 +75,14 @@ $(OBJS_DIR)%.o : $(SRCS_DIR)%.c
 	@$(CC) $(CFLAG) -I$(READ_LINE_DIR)/include -c $< -o $@
 
 clean :
-	@echo "\n\033[94m[Removing Object Files]\033[37m"
+	@echo "\n\033[36m[Removing Object Files]\033[37m"
 	@make -C $(LIBFT_DIR) clean
 	rm -f $(OBJS)
 	rm -rf $(OBJS_DIR)
 	@echo "\033[32m\n...clean Done!\n\033[37m"
 
 fclean : clean
-	@echo "\033[94m[Removing Binary File]\033[37m"
+	@echo "\033[36m[Removing Binary File]\033[37m"
 	@make -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 	@echo "\033[32m\n...fclean Done!\n\033[37m"

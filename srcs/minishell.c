@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:00:18 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:41 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 02:15:50 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av, char **env)
 	listen();
 	while (1)
 	{
-		str = readline("almond@minishell % ");
+		str = readline("\e[1;34malmond@minishell %\e[0;37m ");
 		if (!str)
 			the_exit(g_global.status);
 		head = token(str, &root);
