@@ -6,14 +6,20 @@
 #    By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 21:26:45 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/14 21:41:53 by jiwkwon          ###   ########.fr        #
+#    Updated: 2022/10/16 16:14:27 by jiwkwon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
+SRC_DIR = ./
+OBJ_DIR = ../objs/libft/
+
 SRC = ft_atoi.c ft_putstr_fd.c ft_strcmp.c ft_strlen.c ft_strncmp.c
-OBJ = $(SRC:.c=.o)
+
+OBJ := $(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
+SRC := $(addprefix $(SRC_DIR), $(SRC))
+
 
 AR = ar
 ARFLAG = -rcs
@@ -26,8 +32,9 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(AR) $(ARFLAG) $@ $^
 
-%.o : %.c
-	$(CC) $(CFLAG) -c $<
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJ)
