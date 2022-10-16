@@ -6,7 +6,7 @@
 #    By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 19:01:09 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/16 21:22:00 by jshin            ###   ########.fr        #
+#    Updated: 2022/10/16 21:44:59 by jshin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS =	$(SRCS_DIR)minishell.c \
 		$(SRCS_DIR)parser/parser_linkedlist.c \
 		$(SRCS_DIR)parser/token_connecters.c \
 		$(SRCS_DIR)parser/token_quotes.c \
+		$(SRCS_DIR)parser/token_quotes_in_quotes.c \
 		$(SRCS_DIR)parser/token_string.c \
 		$(SRCS_DIR)parser/token_utils.c \
 		$(SRCS_DIR)parser/token.c \
