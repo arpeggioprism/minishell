@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:19:23 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:35 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 08:34:44 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,6 @@ int	check_closed_dq(t_token **root, char *str, int i, int last)
 	else if (!str[i])
 		return (unclosed_quote(root), i + 1);
 	return (i + 2);
-}
-
-int	take_qvar(char *str, t_token **root)
-{
-	char	*comp;
-	int		i;
-	int		j;
-
-	i = 0;
-	comp = "!@#$*+-~./, \t\r\f\v\n\"()";
-	while (str[++i])
-	{
-		j = -1;
-		while (comp[++j])
-			if (str[i] == comp[j])
-				return (add_item(str, str + i, VAR, root), i);
-	}
-	return (i);
 }
 
 int	take_colon(char *str, t_token **root)

@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 05:40:29 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 08:34:27 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ int			take_var(char *str, t_token **root);
 int			take_colon(char *str, t_token **root);
 int			take_colon2(char *str, t_token **root);
 int			take_dquote(char *str, t_token **root);
-int			take_qvar(char *str, t_token **root);
+int			take_dquote2(char *str, t_token **root);
 int			check_closed_dq(t_token **root, char *str, int i, int last);
 int			take_less_more(char *str, t_token **root);
 int			take_wp(char *str, t_token **root);
