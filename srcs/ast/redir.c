@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 21:23:21 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/16 21:36:51 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_tree	*get_redir(t_tree *next, char *filename, int redtype)
 	{
 		node->src = STDOUT_FILENO;
 		if (redtype == GREAT)
-			node->mode = O_CREAT | O_RDWR | O_TRUNC ;
+			node->mode = O_CREAT | O_RDWR | O_TRUNC;
 		else
 			node->mode = O_CREAT | O_RDWR | O_APPEND;
 	}
