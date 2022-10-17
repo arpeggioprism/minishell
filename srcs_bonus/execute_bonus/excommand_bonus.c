@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 17:20:13 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 22:35:13 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	check_extern(char **argv)
 	g_global.running = 1;
 	find_path(argv);
 	pid = fork();
+	sigmodi();
 	if (pid == 0)
 	{
 		sigreset();
@@ -30,6 +31,7 @@ void	check_extern(char **argv)
 		the_exit(127);
 	}
 	waitpid(pid, &status, 0);
+	listen();
 	g_global.status = getst(status);
 	g_global.running = 0;
 }

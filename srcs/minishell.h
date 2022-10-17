@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 17:19:52 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 22:32:20 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,7 +207,9 @@ void		expand_tokens(t_command **root);
 void		check_token_type(t_command **root, t_command *node);
 void		get_wild_value(t_command **root, t_command *node);
 void		handler(int sig);
+void		handler2(int sig);
 void		listen(void);
+void		sigmodi(void);
 void		sigreset(void);
 char		**transfer(t_command *root);
 int			getst(int status);
