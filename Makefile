@@ -6,7 +6,7 @@
 #    By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 19:01:09 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/17 05:31:09 by jshin            ###   ########.fr        #
+#    Updated: 2022/10/17 10:29:11 by jshin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ SRCS =	$(SRCS_DIR)minishell.c \
 OBJS = $(patsubst $(SRCS_DIR)%, $(OBJS_DIR)%, $(SRCS:.c=.o))
 
 CC = cc
-CFLAG = -Wall -Wextra -Werror -g
+CFLAG = -Wall -Wextra -Werror
 
 all : $(NAME)
 
