@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:19:35 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 10:08:44 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 14:13:01 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	take_var(char *str, t_token **root, const bool *comp)
 int	add_item_int(char *str, t_token **root, const bool *comp)
 {
 	add_item(str, str + 1, TILD, root);
-	if (*comp)
+	if (comp)
 		;
 	return (1);
 }
