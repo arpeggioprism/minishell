@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:15:53 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:32 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 17:18:47 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	handler(int sig)
 {
-	if (g_global.runing)
+	if (g_global.running)
 		return ;
 	g_global.status = 128 + sig;
 	printf("\n");

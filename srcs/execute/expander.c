@@ -6,13 +6,13 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:57 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:31 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 17:20:05 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	expend_tokens(t_command **root)
+void	expand_tokens(t_command **root)
 {
 	t_command	*tmp;
 

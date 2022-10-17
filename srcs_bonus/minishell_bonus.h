@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 11:18:26 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 17:20:19 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ typedef struct s_global
 	t_collector	**cur;
 	t_env		*env;
 	int			status;
-	int			runing;
+	int			running;
 }	t_global;
 
 t_global	g_global;
@@ -206,7 +206,7 @@ void		cast_node(t_tree *root);
 void		ex_redir(t_redir *root);
 void		ex_pipe(t_wp *root);
 void		ex_cmd(t_cmd *cmd);
-void		expend_tokens(t_command **root);
+void		expand_tokens(t_command **root);
 void		check_token_type(t_command **root, t_command *node);
 void		get_wild_value(t_command **root, t_command *node);
 void		handler(int sig);

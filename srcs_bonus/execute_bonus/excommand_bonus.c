@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 10:09:21 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/17 17:20:13 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_extern(char **argv)
 	int	pid;
 	int	status;
 
-	g_global.runing = 1;
+	g_global.running = 1;
 	find_path(argv);
 	pid = fork();
 	if (pid == 0)
@@ -31,14 +31,14 @@ void	check_extern(char **argv)
 	}
 	waitpid(pid, &status, 0);
 	g_global.status = getst(status);
-	g_global.runing = 0;
+	g_global.running = 0;
 }
 
 void	ex_cmd(t_cmd *cmd)
 {
 	char	**argv;
 
-	expend_tokens(&cmd->next);
+	expand_tokens(&cmd->next);
 	argv = transfer(cmd->next);
 	if (check_builtin(argv))
 		return ;
