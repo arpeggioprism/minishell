@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 21:26:38 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 11:25:53 by jshin            ###   ########.fr       */
+/*   Created: 2021/09/25 16:54:49 by jshin             #+#    #+#             */
+/*   Updated: 2022/10/17 07:27:35 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
 
-int		ft_atoi(const char *str);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_putstr_fd(char *str, int fd);
-int		ft_strcmp(char *s1, char *s2);
-int		ft_strlen(char *s);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-
-#endif
+	i = 0;
+	while (i < n)
+		((unsigned char *)s)[i++] = (unsigned char)c;
+	return (s);
+}
