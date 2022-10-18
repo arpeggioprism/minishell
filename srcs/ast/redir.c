@@ -6,13 +6,13 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 21:10:15 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/18 21:11:55 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	herdoc(char *del)
+int	heredoc(char *del)
 {
 	int		fd[2];
 	char	*line;
@@ -55,7 +55,7 @@ t_tree	*get_redir(t_tree *next, char *filename, int redtype)
 			node->mode = O_CREAT | O_RDWR | O_APPEND;
 	}
 	if (redtype == DLESS)
-		node->dst = herdoc(filename);
+		node->dst = heredoc(filename);
 	node->filename = filename;
 	return ((t_tree *)node);
 }
