@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ast_command.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:06:22 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 02:08:57 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/19 02:28:04 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,10 @@ int	get_cmdlist_utils2(t_token **head, t_command **root, char **join)
 		return (1);
 	}
 	*join = ft_strjoin(*join, (*head)->str);
-	*head = get_left(*head); 
+	*head = get_left(*head);
 	(*head)->next = (*head)->next->next->next;
 	if ((*head)->next)
 		(*head)->next->prev = (*head);
-	*head = get_left(*head); 
+	*head = get_left(*head);
 	return (0);
 }
