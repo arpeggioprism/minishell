@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 02:39:49 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 04:08:50 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ int			getst(int status);
 bool		check_builtin(char **argv);
 int			find_path(char **argv);
 int			ft_access(char *file);
+bool		is_slash(char *argv);
 
 // 6. BUILTINS
 void		ft_cd(char **argv);
