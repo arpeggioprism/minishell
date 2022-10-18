@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redir.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 02:06:51 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/19 05:37:21 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_tree	*get_redir(t_tree *next, char *filename, int redtype)
 	t_redir	*node;
 
 	node = ft_malloc(g_global.cur, sizeof(t_redir), 1);
+	memset(node, 0, sizeof(t_redir));
 	node->type = REDIR;
 	node->redtype = redtype;
 	node->next = next;

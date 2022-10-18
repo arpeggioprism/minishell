@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:16 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 23:36:55 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 04:44:04 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	heredoc_handler(int sig)
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	printf("\n");
-	exit(1);
+	the_exit(1, 3);
 }

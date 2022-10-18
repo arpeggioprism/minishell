@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 01:53:55 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 05:42:46 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_tree	*get_redir(t_tree *next, char *filename, int redtype)
 	t_redir	*node;
 
 	node = ft_malloc(g_global.cur, sizeof(t_redir), 1);
+	memset(node, 0, sizeof(t_redir));
 	node->type = REDIR;
 	node->redtype = redtype;
 	node->next = next;

@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 03:55:29 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 04:56:34 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	ft_access(char *file)
 	fd = open(file, O_EXCL);
 	if (fd == -1)
 		return (1);
+	close(fd);
 	return (0);
 }
 
