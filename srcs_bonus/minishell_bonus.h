@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 01:06:27 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 02:39:49 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,9 @@ t_tree		*get_pipe(t_token **head);
 t_tree		*get_command(t_token **head);
 t_tree		*get_rdr(t_token **head, t_tree *n);
 t_tree		*get_cmdlist(t_token **head);
+t_tree		*get_cmdlist2(t_token **head, t_cmd	*ret, char **join);
 int			get_cmdlist_utils(t_token **head, t_command **root, char **join);
+int			get_cmdlist_utils2(t_token **head, t_command **root, char **join);
 int			heredoc(char *del);
 t_tree		*get_redir(t_tree *next, char *filename, int redtype);
 t_command	*new_nodecommand(char *str, int flag);

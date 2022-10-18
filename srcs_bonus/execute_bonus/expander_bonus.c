@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:57 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 17:20:17 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/19 02:43:32 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ void	check_token_type(t_command **root, t_command *node)
 	else if (node->type == VAR && !ft_strcmp(node->content, "$$"))
 		node->content = ft_itoa(getpid());
 	else if (node->type == VAR)
+	{
+		if (!ft_strnstr(node->content, "$", sizeof(node->content)))
+			return ;
 		node->content = get_env_value(node->content + 1);
+	}
 }
 
 t_command	*get_wild_value_utils(void)

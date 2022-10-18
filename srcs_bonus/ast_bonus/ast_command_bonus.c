@@ -3,14 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ast_command_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:06:22 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 10:10:34 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/19 02:39:18 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell_bonus.h"
+
+t_tree	*get_cmdlist2(t_token **head, t_cmd	*ret, char **join)
+{
+	if ((*head)->next)
+		*head = get_right(*head);
+	if ((*head)->next)
+		*head = get_right(*head);
+	*join = "";
+	if (get_cmdlist_utils2(head, &ret->next, &*join))
+		return ((t_tree *)ret);
+	if (**join && (*head))
+		(*head)->str = *join;
+	else if (**join && !*head)
+		return (append_in_cmdend(&ret->next, *join, WORD), (t_tree *)ret);
+	append_in_cmdend(&ret->next, (*head)->str, (*head)->type);
+	if (!(*head && ((*head)->type == VAR \
+	|| (*head)->type == TILD || (*head)->type == WILD \
+	|| (*head)->type == WSPACE)))
+		;
+	else
+		*head = get_right(*head);
+	return ((t_tree *)ret);
+}
 
 t_tree	*get_cmdlist(t_token **head)
 {
@@ -18,6 +41,8 @@ t_tree	*get_cmdlist(t_token **head)
 	char	*join;
 
 	ret = (t_cmd *)get_cmdnode(NULL);
+	if (*head && (*head)->type == 3)
+		return (get_cmdlist2(head, ret, &join));
 	while (*head && ((*head)->type == VAR \
 	|| (*head)->type == WORD || (*head)->type == TILD || (*head)->type == WILD))
 	{
@@ -70,5 +95,22 @@ int	get_cmdlist_utils(t_token **head, t_command **root, char **join)
 		*join = ft_strjoin(*join, (*head)->str);
 		*head = (*head)->next;
 	}
+	return (0);
+}
+
+int	get_cmdlist_utils2(t_token **head, t_command **root, char **join)
+{
+	if (!(*head)->str[0])
+	{
+		append_in_cmdend(root, "", WORD);
+		*head = get_right(*head);
+		return (1);
+	}
+	*join = ft_strjoin(*join, (*head)->str);
+	*head = get_left(*head);
+	(*head)->next = (*head)->next->next->next;
+	if ((*head)->next)
+		(*head)->next->prev = (*head);
+	*head = get_left(*head);
 	return (0);
 }
