@@ -6,7 +6,7 @@
 #    By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 19:01:09 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/19 04:34:17 by jiwkwon          ###   ########.fr        #
+#    Updated: 2022/10/19 05:44:47 by jiwkwon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,7 @@ OBJS_MANDA = $(patsubst $(SRCS_DIR)%, $(OBJS_DIR)%, $(SRCS_MANDA:.c=.o))
 OBJS_BONUS = $(patsubst $(SRCS_DIR_BONUS)%, $(OBJS_DIR_BONUS)%, $(SRCS_BONUS:.c=.o))
 
 CC = cc
-CFLAG = -Wall -Wextra -Werror -g
+CFLAG = -Wall -Wextra -Werror
 
 ifdef WITH_BONUS
 OBJS = $(OBJS_BONUS)
