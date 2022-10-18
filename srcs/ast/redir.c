@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redir.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:23 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/18 13:18:12 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ int	herdoc(char *del)
 	pipe(fd);
 	while (1)
 	{
-		line = readline("herdoc >");
+		line = readline(">");
 		if (!line)
 			break ;
 		if (!ft_strcmp(del, line))
 			break ;
 		write(fd[1], line, ft_strlen(line));
 		write(fd[1], "\n", 1);
+		free(line);
 	}
 	close(fd[1]);
 	return (fd[0]);

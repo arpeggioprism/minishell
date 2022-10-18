@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 22:32:20 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/18 13:40:15 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <errno.h>
+# include <termios.h>
+# include <sys/ioctl.h>
 # include "../libft/libft.h"
 
 # define VAR 0
@@ -222,7 +224,7 @@ void		check_dir(char **argv, int s, char *cur);
 int			ft_echo(char **argv);
 int			get_echo_flag(int flag);
 int			new_line(char *str);
-void		the_exit(int status);
+void		the_exit(int status, int mode);
 int			ft_exit(char **argv);
 int			exit_parse(char *str);
 int			ft_pwd(int fd);
@@ -251,5 +253,7 @@ char		*ft_strjoin(char *s1, char *s2);
 int			ft_strcmp(char *s1, char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strdup(char *s1);
+
+void	handler3(int signal);
 
 #endif

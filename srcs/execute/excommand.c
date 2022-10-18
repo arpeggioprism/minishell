@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excommand.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 22:32:47 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/18 13:30:56 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_extern(char **argv)
 		ft_putstr_fd("execve: ", 1);
 		ft_putstr_fd(argv[0], 1);
 		ft_putstr_fd(": command not found\n", 1);
-		the_exit(127);
+		the_exit(127, 0);
 	}
 	waitpid(pid, &status, 0);
 	listen();

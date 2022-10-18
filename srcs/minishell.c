@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:00:18 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 02:15:50 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/18 13:27:52 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av, char **env)
 	{
 		str = readline("\e[1;34malmond@minishell %\e[0;37m ");
 		if (!str)
-			the_exit(g_global.status);
+			the_exit(g_global.status, 0);
 		head = token(str, &root);
 		if (check_history(str))
 			add_history(str);

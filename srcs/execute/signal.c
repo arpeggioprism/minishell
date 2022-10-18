@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:15:53 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 22:31:05 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/18 13:42:50 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	handler(int sig)
 {
+	struct termios	term;
+
+	tcgetattr(STDOUT_FILENO, &term);
+	term.c_lflag &= ~(ECHOCTL);
+	tcsetattr(STDIN_FILENO, TCSANOW, &term);
 	if (g_global.running)
 	{
 		printf("\n");
@@ -36,10 +41,17 @@ void	handler2(int sig)
 	{
 		rl_on_new_line();
 		rl_replace_line("", 0);
-		printf("Quit: 3\n");
+		printf("^\\Quit: 3\n");
 		return ;
 	}
 	(void)sig;
+}
+
+void	handler3(int signal)
+{
+	if (signal != SIGINT)
+		return ;
+	write(2, "^C\n", 3);
 }
 
 void	listen(void)
@@ -50,6 +62,7 @@ void	listen(void)
 
 void	sigmodi(void)
 {
+	signal(SIGINT, &handler3);
 	signal(SIGQUIT, &handler2);
 }
 
