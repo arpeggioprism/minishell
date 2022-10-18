@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 03:19:31 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 03:55:29 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	check_extern(char **argv)
 {
-	int	pid;
-	int	status;
+	int		pid;
+	int		status;
 
 	find_path(argv);
 	pid = fork();
@@ -27,7 +27,7 @@ void	check_extern(char **argv)
 		execve(*argv, argv, transfer_env(g_global.env));
 		ft_putstr_fd("minishell: ", 1);
 		ft_putstr_fd(argv[0], 1);
-		ft_putstr_fd(": command not found\n", 1);
+		is_slash(*argv);
 		the_exit(127, 3);
 	}
 	waitpid(pid, &status, 0);
