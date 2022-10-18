@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 21:05:31 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/18 21:06:45 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	herdoc(char *del)
 		if (!line)
 			break ;
 		if (!ft_strcmp(del, line))
+		{
+			free(line);
 			break ;
+		}
 		write(fd[1], line, ft_strlen(line));
 		write(fd[1], "\n", 1);
 		free(line);
