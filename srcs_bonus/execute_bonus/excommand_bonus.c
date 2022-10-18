@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excommand_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 22:35:13 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/18 17:17:21 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@ void	check_extern(char **argv)
 	int	pid;
 	int	status;
 
-	g_global.running = 1;
 	find_path(argv);
 	pid = fork();
-	sigmodi();
+	g_global.running = 1;
+	change_signal();
 	if (pid == 0)
 	{
-		sigreset();
+		child_signal();
 		execve(*argv, argv, transfer_env(g_global.env));
 		ft_putstr_fd("execve: ", 1);
 		ft_putstr_fd(argv[0], 1);
 		ft_putstr_fd(": command not found\n", 1);
-		the_exit(127);
+		the_exit(127, 3);
 	}
 	waitpid(pid, &status, 0);
-	listen();
+	set_signal();
 	g_global.status = getst(status);
 	g_global.running = 0;
 }

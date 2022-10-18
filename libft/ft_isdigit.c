@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 21:26:38 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 19:38:44 by jiwkwon          ###   ########.fr       */
+/*   Created: 2022/10/18 19:21:22 by jiwkwon           #+#    #+#             */
+/*   Updated: 2022/10/18 19:51:01 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+int	ft_isdigit(char *str)
+{
+	int	i;
 
-int		ft_atoi(const char *str);
-int		ft_isdigit(char *str);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_putstr_fd(char *str, int fd);
-int		ft_strcmp(char *s1, char *s2);
-int		ft_strlen(char *s);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-
-#endif
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
+}

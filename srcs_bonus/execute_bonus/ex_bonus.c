@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ex_bonus.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:32 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 10:09:51 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/18 17:28:14 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	pipe_ex_utils(int *fd, int i, t_tree *root)
 	close(fd[0]);
 	close(fd[1]);
 	cast_node(root);
-	the_exit(g_global.status);
+	the_exit(g_global.status, 3);
 }
 
 void	ex_pipe(t_wp *root)

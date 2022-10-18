@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 22:34:55 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/18 19:45:57 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 # define MINISHELL_BONUS_H
 
 # include <stdio.h>
-# include <readline/readline.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <string.h>
 # include <dirent.h>
-# include <readline/history.h>
-# include <limits.h>
 # include <stdbool.h>
-# include <errno.h>
+# include <termios.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 # include "../libft/libft.h"
 
 # define VAR 0
@@ -209,11 +208,6 @@ void		ex_cmd(t_cmd *cmd);
 void		expand_tokens(t_command **root);
 void		check_token_type(t_command **root, t_command *node);
 void		get_wild_value(t_command **root, t_command *node);
-void		handler(int sig);
-void		handler2(int sig);
-void		listen(void);
-void		sigmodi(void);
-void		sigreset(void);
 char		**transfer(t_command *root);
 int			getst(int status);
 bool		check_builtin(char **argv);
@@ -225,9 +219,8 @@ void		check_dir(char **argv, int s, char *cur);
 int			ft_echo(char **argv);
 int			get_echo_flag(int flag);
 int			new_line(char *str);
-void		the_exit(int status);
+void		the_exit(int status, int d_flag);
 int			ft_exit(char **argv);
-int			exit_parse(char *str);
 int			ft_pwd(int fd);
 void		ft_unset(char **argv);
 void		ft_env(void);
@@ -236,6 +229,12 @@ void		display_exports(void);
 char		**ft_split_exp(char *line);
 
 // 7. ETC
+void		set_signal(void);
+void		handler(int sig);
+void		handler2(int sig);
+void		handler3(int signal);
+void		change_signal(void);
+void		child_signal(void);
 void		*ft_malloc(t_collector **root, size_t size, int key);
 t_collector	**append_adr(t_collector **root, void *adr, int key);
 t_collector	*new_node_adr(void *adr, int key);

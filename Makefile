@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+         #
+#    By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 19:01:09 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/17 11:10:40 by jshin            ###   ########.fr        #
+#    Updated: 2022/10/18 17:30:12 by jiwkwon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,11 @@ SRCS_MANDA = $(SRCS_DIR)minishell.c \
 			 $(SRCS_DIR)env/env.c \
 			 $(SRCS_DIR)etc/collector_linkedlist.c \
 			 $(SRCS_DIR)etc/history.c \
+			 $(SRCS_DIR)etc/signal_default.c \
+			 $(SRCS_DIR)etc/signal_temp.c \
 			 $(SRCS_DIR)execute/ex.c \
 			 $(SRCS_DIR)execute/excommand.c \
 			 $(SRCS_DIR)execute/expander.c \
-			 $(SRCS_DIR)execute/signal.c \
 			 $(SRCS_DIR)execute/transfer.c \
 			 $(SRCS_DIR)parser/delete_quotes.c \
 			 $(SRCS_DIR)parser/parser_linkedlist.c \
@@ -79,10 +80,11 @@ SRCS_BONUS = $(SRCS_DIR_BONUS)minishell_bonus.c \
 			 $(SRCS_DIR_BONUS)etc_bonus/collector_linkedlist_bonus.c \
 			 $(SRCS_DIR_BONUS)etc_bonus/history_bonus.c \
 			 $(SRCS_DIR_BONUS)etc_bonus/init_bonus.c \
+			 $(SRCS_DIR_BONUS)etc_bonus/signal_default_bonus.c \
+			 $(SRCS_DIR_BONUS)etc_bonus/signal_temp_bonus.c \
 			 $(SRCS_DIR_BONUS)execute_bonus/ex_bonus.c \
 			 $(SRCS_DIR_BONUS)execute_bonus/excommand_bonus.c \
 			 $(SRCS_DIR_BONUS)execute_bonus/expander_bonus.c \
-			 $(SRCS_DIR_BONUS)execute_bonus/signal_bonus.c \
 			 $(SRCS_DIR_BONUS)execute_bonus/transfer_bonus.c \
 			 $(SRCS_DIR_BONUS)parser_bonus/delete_quotes_bonus.c \
 			 $(SRCS_DIR_BONUS)parser_bonus/parser_linkedlist_bonus.c \

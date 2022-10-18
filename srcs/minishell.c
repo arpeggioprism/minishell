@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:00:18 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 13:27:52 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/18 19:48:19 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	main(int ac, char **av, char **env)
 		return (printf("%s accept no params\n", ((*av) + 2)), 0);
 	g_global.cur = ((root = NULL, g_global.adrs = NULL, &g_global.adrs));
 	get_env(env);
-	listen();
+	set_signal();
 	while (1)
 	{
 		str = readline("\e[1;34malmond@minishell %\e[0;37m ");
 		if (!str)
-			the_exit(g_global.status, 0);
+			the_exit(g_global.status, 1);
 		head = token(str, &root);
 		if (check_history(str))
 			add_history(str);

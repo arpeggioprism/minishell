@@ -1,60 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal_bonus.c                                     :+:      :+:    :+:   */
+/*   signal_temp_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 19:15:53 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/17 22:34:33 by jshin            ###   ########.fr       */
+/*   Created: 2022/10/18 17:12:10 by jiwkwon           #+#    #+#             */
+/*   Updated: 2022/10/18 19:50:34 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell_bonus.h"
 
-void	handler(int sig)
-{
-	if (g_global.running)
-	{
-		printf("\n");
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		return ;
-	}
-	g_global.status = 128 + sig;
-	printf("\n");
-	rl_replace_line("", 0);
-	rl_on_new_line();
-	rl_redisplay();
-}
-
 void	handler2(int sig)
 {
-	if (!g_global.running)
+	if (sig != SIGINT || !g_global.running)
 		return ;
 	if (g_global.running)
 	{
 		rl_on_new_line();
 		rl_replace_line("", 0);
-		printf("Quit: 3\n");
-		return ;
+		printf("^C\n");
 	}
-	(void)sig;
 }
 
-void	listen(void)
+void	handler3(int sig)
 {
-	signal(SIGINT, &handler);
-	signal(SIGQUIT, SIG_IGN);
+	if (sig != SIGQUIT || !g_global.running)
+		return ;
+	if (g_global.running)
+	{
+		rl_on_new_line();
+		rl_replace_line("", 0);
+		printf("^\\Quit: 3\n");
+	}
 }
 
-void	sigmodi(void)
+void	change_signal(void)
 {
-	signal(SIGQUIT, &handler2);
-}
-
-void	sigreset(void)
-{
-	signal(SIGINT, SIG_DFL);
-	signal(SIGQUIT, SIG_DFL);
+	signal(SIGINT, &handler2);
+	signal(SIGQUIT, &handler3);
 }
