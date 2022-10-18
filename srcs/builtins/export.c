@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:13:04 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:25 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/19 04:14:41 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	display_exports(void)
 		ft_putstr_fd(env->key, 1);
 		ft_putstr_fd("=\"", 1);
 		ft_putstr_fd(env->value, 1);
-		ft_putstr_fd("\n\"", 1);
+		ft_putstr_fd("\"\n", 1);
 		env = env->next;
 	}
 	g_global.status = 0;
