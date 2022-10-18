@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 02:42:33 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 03:19:31 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_extern(char **argv)
 	{
 		child_signal();
 		execve(*argv, argv, transfer_env(g_global.env));
-		ft_putstr_fd("execve: ", 1);
+		ft_putstr_fd("minishell: ", 1);
 		ft_putstr_fd(argv[0], 1);
 		ft_putstr_fd(": command not found\n", 1);
 		the_exit(127, 3);
