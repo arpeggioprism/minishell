@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:12:11 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/16 22:48:24 by jshin            ###   ########.fr       */
+/*   Updated: 2022/10/19 03:08:13 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_echo(char **argv)
 		{
 			if (new_line(argv[i]))
 			{
-				flag = 0;
+				flag = -2;
 				continue ;
 			}
 		}
