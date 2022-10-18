@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:56:49 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 21:11:56 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 01:06:27 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,6 +212,7 @@ char		**transfer(t_command *root);
 int			getst(int status);
 bool		check_builtin(char **argv);
 int			find_path(char **argv);
+int			ft_access(char *file);
 
 // 6. BUILTINS
 void		ft_cd(char **argv);
@@ -221,6 +222,7 @@ int			get_echo_flag(int flag);
 int			new_line(char *str);
 void		the_exit(int status, int d_flag);
 int			ft_exit(char **argv);
+void		free_heredoc_line(char *line);
 int			ft_pwd(int fd);
 void		ft_unset(char **argv);
 void		ft_env(void);
@@ -235,6 +237,7 @@ void		handler2(int sig);
 void		handler3(int signal);
 void		change_signal(void);
 void		child_signal(void);
+void		heredoc_handler(int sig);
 void		*ft_malloc(t_collector **root, size_t size, int key);
 t_collector	**append_adr(t_collector **root, void *adr, int key);
 t_collector	*new_node_adr(void *adr, int key);

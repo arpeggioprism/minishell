@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:16 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 19:49:58 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/18 23:36:55 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ void	handler3(int sig)
 
 void	change_signal(void)
 {
-	signal(SIGINT, &handler2);
-	signal(SIGQUIT, &handler3);
+	signal(SIGINT, handler2);
+	signal(SIGQUIT, handler3);
+}
+
+void	heredoc_handler(int sig)
+{
+	if (sig != SIGINT)
+		return ;
+	rl_on_new_line();
+	rl_replace_line("", 0);
+	printf("\n");
+	exit(1);
 }

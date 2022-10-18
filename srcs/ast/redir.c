@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 21:11:55 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 00:33:32 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,29 @@ int	heredoc(char *del)
 {
 	int		fd[2];
 	char	*line;
+	int		pid;
 
-	pipe(fd);
-	while (1)
+	pid = (pipe(fd), fork());
+	if (pid == 0)
 	{
-		line = readline(">");
-		if (!line)
-			break ;
-		if (!ft_strcmp(del, line))
+		signal(SIGINT, heredoc_handler);
+		while (1)
 		{
+			line = readline("> ");
+			if (!line || !ft_strcmp(del, line))
+			{
+				free_heredoc_line(line);
+				break ;
+			}
+			write(fd[1], line, ft_strlen(line));
+			write(fd[1], "\n", 1);
 			free(line);
-			break ;
 		}
-		write(fd[1], line, ft_strlen(line));
-		write(fd[1], "\n", 1);
-		free(line);
+		the_exit(0, 3);
 	}
-	close(fd[1]);
-	return (fd[0]);
+	signal(SIGINT, SIG_IGN);
+	waitpid(pid, 0, 0);
+	return (set_signal(), close(fd[1]), fd[0]);
 }
 
 t_tree	*get_redir(t_tree *next, char *filename, int redtype)

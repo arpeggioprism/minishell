@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:00:18 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 19:15:52 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 02:00:34 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av, char **env)
 	set_fp_n_comp(fp, comp, 0);
 	while (1)
 	{
-		str = readline("\e[1;34malmond@minishell %\e[0;37m ");
+		str = readline("\e[1;32malmond@minishell %\e[0;37m ");
 		if (!str)
 			the_exit(g_global.status, 1);
 		head = token(fp, str, &root, comp);

@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:15:53 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 20:11:15 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/18 21:21:27 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	set_signal(void)
 	tcgetattr(STDIN_FILENO, &term);
 	term.c_lflag &= ~(ECHOCTL);
 	tcsetattr(STDIN_FILENO, TCSANOW, &term);
-	signal(SIGINT, &handler);
+	signal(SIGINT, handler);
 	signal(SIGQUIT, SIG_IGN);
 }
 

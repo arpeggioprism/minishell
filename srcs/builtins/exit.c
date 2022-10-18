@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:12:52 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 19:44:25 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 00:08:17 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,11 @@ int	ft_exit(char **argv)
 		}
 	}
 	return (0);
+}
+
+void	free_heredoc_line(char *line)
+{
+	if (!line)
+		return ;
+	free(line);
 }

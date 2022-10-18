@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:32 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 17:28:13 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 00:29:45 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ex_redir(t_redir *root)
 		exit(g_global.status);
 	}
 	waitpid(pid, &status, 0);
+	close(root->dst);
 	g_global.status = getst(status);
 }
 

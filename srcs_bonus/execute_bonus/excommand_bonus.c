@@ -6,7 +6,7 @@
 /*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/18 17:17:21 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 01:47:58 by jiwkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ void	ex_cmd(t_cmd *cmd)
 	check_extern(argv);
 }
 
+int	ft_access(char *file)
+{
+	int	fd;
+
+	fd = open(file, O_EXCL);
+	if (fd == -1)
+		return (1);
+	return (0);
+}
+
 int	find_path(char **argv)
 {
 	char	*path;
@@ -61,8 +71,8 @@ int	find_path(char **argv)
 	while (*spl)
 	{
 		*spl = ft_strjoin(*spl, "/");
-		if (!access(ft_strjoin(*spl, *argv), 0))
-			return (*argv = ft_strjoin(*spl, *argv), 1);
+		if (!ft_access(ft_strjoin(*spl, *argv)))
+			return ((*argv = ft_strjoin(*spl, *argv)), 1);
 		spl++;
 	}
 	return (0);
@@ -70,6 +80,8 @@ int	find_path(char **argv)
 
 bool	check_builtin(char **argv)
 {
+	if (!*argv)
+		return (1);
 	if (!ft_strcmp(*argv, "echo"))
 		return (ft_echo(argv), true);
 	else if (!ft_strcmp(*argv, "unset"))
