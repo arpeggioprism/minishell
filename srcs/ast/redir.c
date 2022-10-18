@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redir.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:10 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 00:33:32 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 02:06:51 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ t_tree	*get_redir(t_tree *next, char *filename, int redtype)
 	}
 	if (redtype == DLESS)
 		node->dst = heredoc(filename);
+	else if (redtype == LESS)
+		node->mode = O_CREAT | O_RDWR;
 	node->filename = filename;
 	return ((t_tree *)node);
 }

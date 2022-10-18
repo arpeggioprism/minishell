@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excommand_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jshin <jshin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:14:46 by jiwkwon           #+#    #+#             */
-/*   Updated: 2022/10/19 01:47:58 by jiwkwon          ###   ########.fr       */
+/*   Updated: 2022/10/19 02:12:01 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	find_path(char **argv)
 bool	check_builtin(char **argv)
 {
 	if (!*argv)
-		return (1);
+		return (true);
 	if (!ft_strcmp(*argv, "echo"))
 		return (ft_echo(argv), true);
 	else if (!ft_strcmp(*argv, "unset"))

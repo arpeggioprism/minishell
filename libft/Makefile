@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jiwkwon <jiwkwon@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: jshin <jshin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 21:26:45 by jiwkwon           #+#    #+#              #
-#    Updated: 2022/10/18 19:34:41 by jiwkwon          ###   ########.fr        #
+#    Updated: 2022/10/19 02:16:07 by jshin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = libft.a
 SRC_DIR = ./
 OBJ_DIR = ../objs/libft/
 
-SRC = ft_atoi.c ft_isdigit.c ft_memset.c ft_putstr_fd.c ft_strcmp.c ft_strlen.c ft_strncmp.c
+SRC = ft_atoi.c ft_isdigit.c ft_memset.c ft_putstr_fd.c ft_strcmp.c \
+	ft_strlen.c ft_strncmp.c ft_strnstr.c
 
 OBJ := $(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 SRC := $(addprefix $(SRC_DIR), $(SRC))
